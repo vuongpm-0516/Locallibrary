@@ -1,0 +1,25 @@
+{
+  "devDependencies": {
+    "eslint": "^9.6.0",
+    "express": "^4.19.2"
+  },
+  "name": "locallibrary",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "eslint src/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuongpm-0516/Locallibrary.git"
+  },
+  "author": "Pham Minh Vuong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vuongpm-0516/Locallibrary/issues"
+  },
+  "homepage": "https://github.com/vuongpm-0516/Locallibrary#readme",
+  "description": "Learn and practice Node.js with Express Tutorial"
+}
