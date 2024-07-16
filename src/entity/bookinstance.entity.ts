@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Book } from './book.entity';
+import { BookInstanceStatus } from '../enums/BookInstanceStatus';
 
 @Entity()
 export class BookInstance {
@@ -9,8 +10,12 @@ export class BookInstance {
     @Column()
     imprint: string;
 
-    @Column()
-    status: string;
+    @Column({
+        type: 'enum',
+        enum: BookInstanceStatus,
+        default: BookInstanceStatus.AVAILABLE,
+    })
+    status: BookInstanceStatus;
 
     @Column({ type: 'date', nullable: true })
     due_back: Date;
