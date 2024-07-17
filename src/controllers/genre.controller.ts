@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import asyncHandler from 'express-async-handler';
 
+import * as genreServices from '../services/genre.services';
+
 // Display list of all Genres.
 export const genreList = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    res.send('NOT IMPLEMENTED: Genre list');
+    const genres = await genreServices.getGenreList();
+    res.render('genres/index', { genres, title: req.t('list.genre') });
 });
 
 // Display detail page for a specific Genre.

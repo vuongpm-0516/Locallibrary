@@ -1,7 +1,7 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class EnumTypeForBookInstanceStatusColumn1721122270773 implements MigrationInterface {
-    name = 'EnumTypeForBookInstanceStatusColumn1721122270773'
+    name = 'EnumTypeForBookInstanceStatusColumn1721122270773';
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(

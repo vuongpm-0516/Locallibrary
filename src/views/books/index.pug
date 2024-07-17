@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    h1= title
+    if books.length
+        ul
+            each book in books
+                li.mb
+                    a(href=book.url) #{book.title}
+                    |  (#{book.author.name})
+    else
+        p #{t('list.no_books')}

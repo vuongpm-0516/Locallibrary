@@ -10,3 +10,9 @@ export const getNumAvailableBookInstances = async () =>
     bookInstanceRepository.findAndCount({
         where: { status: BookInstanceStatus.AVAILABLE },
     });
+
+export const getBookinstanceList = async () => {
+    return bookInstanceRepository.find({
+        relations: ['book'],
+    });
+};
