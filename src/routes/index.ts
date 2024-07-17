@@ -1,15 +1,15 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
 import authorRouter from './author.routes';
 import bookRouter from './book.routes';
 import bookinstanceRouter from './bookinstance.routes';
 import genreRouter from './genre.routes';
 
+import { index } from '../controllers/home.controller';
+
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function (req: Request, res: Response, next: NextFunction) {
-    res.render('index', { title: 'Express' });
-});
+router.get('/', index);
 
 router.use('/authors', authorRouter);
 router.use('/books', bookRouter);

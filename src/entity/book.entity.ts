@@ -30,7 +30,7 @@ export class Book {
     @JoinColumn({ name: 'author_id' })
     author: Author;
 
-    @ManyToMany(() => Genre)
+    @ManyToMany(() => Genre, genre => genre.books)
     @JoinTable({
         name: 'book_genre',
         joinColumn: { name: 'book_id', referencedColumnName: 'id' },
