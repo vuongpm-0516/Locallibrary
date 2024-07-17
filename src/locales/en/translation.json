@@ -21,5 +21,15 @@
         "create_bookinstance": "Create new book instance (copy)",
         "english": "English",
         "vietnamese": "Vietnamese"
+    },
+    "list": {
+        "book": "Book List",
+        "author": "Author List",
+        "genre": "Genre List",
+        "bookinstance": "Book Instance List",
+        "no_books": "There are no books.",
+        "no_authors": "There are no authors.",
+        "no_genres": "There are no genres.",
+        "no_bookinstances": "There are no book copies in this library."
     }
 }

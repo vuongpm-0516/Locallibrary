@@ -21,5 +21,15 @@
         "create_bookinstance": "Tạo mới bản sao sách",
         "english": "Tiếng Anh",
         "vietnamese": "Tiếng Việt"
+    },
+    "list": {
+        "book": "Danh sách các quyển sách có trong thư viện",
+        "author": "Danh sách tác giả",
+        "genre": "Danh sách thể loại",
+        "bookinstance": "Danh sách bản sao sách",
+        "no_books": "Không có quyển sách nào.",
+        "no_authors": "Không có tác giả.",
+        "no_genres": "Không có thể loại.",
+        "no_bookinstances": "Không có bản sao nào trong thư viện."
     }
 }

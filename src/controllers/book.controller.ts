@@ -1,9 +1,12 @@
 import { Request, Response, NextFunction } from 'express';
 import asyncHandler from 'express-async-handler';
 
+import * as bookServices from '../services/book.services';
+
 // Display list of all Books.
 export const bookList = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
-    res.send('NOT IMPLEMENTED: Book list');
+    const books = await bookServices.getBookList();
+    res.render('books/index', { books, title: req.t('list.book') });
 });
 
 // Display detail page for a specific Book.

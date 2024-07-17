@@ -16,7 +16,7 @@ router.get('/:id/delete', genreController.genreDeleteGet);
 router.post('/:id/delete', genreController.genreDeletePost);
 
 // GET request to update Genre.
-router.get('/:id/update', genreController.genreDetail);
+router.get('/:id/update', genreController.genreUpdateGet);
 
 // POST request to update Genre.
 router.post('/:id/update', genreController.genreUpdatePost);
