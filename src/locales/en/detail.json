@@ -1,0 +1,23 @@
+{
+    "detail": {
+        "book_detail": "Book Detail",
+        "author_detail": "Author Detail",
+        "genre_detail": "Genre Detail",
+        "bookinstance_detail": "Book Instance Detail",
+        "author_no_books": "This author has no books.",
+        "book_no_instances": "There are no copies of this book in the library.",
+        "genre_no_books": "This genre has no books.",
+        "author": "Author",
+        "genre": "Genre",
+        "books": "Books",
+        "title": "Title",
+        "summary": "Summary",
+        "isbn": "ISBN",
+        "copies": "Copies",
+        "imprint": "Imprint",
+        "due_back": "Due back",
+        "id": "ID",
+        "status": "Status"
+    }
+}
+

@@ -1,0 +1,20 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{t('detail.id', { ns: 'detail' })}: #{bookinstance.id}
+
+    p #[strong #{t('detail.title', { ns: 'detail' })}: ]
+        +link(bookinstance.book.title, `/books/${bookinstance.book.id}`)
+    p #[strong #{t('detail.imprint', { ns: 'detail' })}: ] #{bookinstance.imprint}
+
+    p #[strong #{t('detail.status', { ns: 'detail' })}: ]
+        if bookinstance.status==BookInstanceStatus.AVAILABLE
+            span.text-success #{bookinstance.status}
+        else if bookinstance.status==BookInstanceStatus.MAINTENANCE
+            span.text-danger #{bookinstance.status}
+        else
+            span.text-warning #{bookinstance.status}
+
+    if bookinstance.status!=BookInstanceStatus.AVAILABLE
+        p #[strong #{t('detail.due_back', { ns: 'detail' })}: ] #{bookinstance.due_back}

@@ -1,4 +1,5 @@
 extends ../layout
+include ../mixins
 
 block content
     h1= title
@@ -6,7 +7,7 @@ block content
         ul
             each book in books
                 li.mb
-                    a(href=book.url) #{book.title}
+                    +link(book.title, `/books/${book.id}`)
                     |  (#{book.author.name})
     else
         p #{t('list.no_books')}

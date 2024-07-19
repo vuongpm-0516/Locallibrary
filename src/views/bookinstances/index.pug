@@ -1,4 +1,5 @@
 extends ../layout
+include ../mixins
 
 block content
     h1= title
@@ -7,14 +8,15 @@ block content
         ul
             each val in bookInstances
                 li.mb
-                    a(href=val.url) #{val.book.title} : #{val.imprint} -&nbsp;
-                    if val.status=='Available'
+                    +link(`${val.book.title} : ${val.imprint}`, `/bookinstances/${val.id}`)
+                    |  -&nbsp;
+                    if val.status==BookInstanceStatus.AVAILABLE
                         span.text-success #{val.status}
-                    else if val.status=='Maintenance'
+                    else if val.status==BookInstanceStatus.MAINTENANCE
                         span.text-danger #{val.status}
                     else
                         span.text-warning #{val.status}
-                    if val.status!='Available'
+                    if val.status!=BookInstanceStatus.AVAILABLE
                         span  (Due: #{val.due_back})
     else
         p #{t('list.no_bookinstances')}

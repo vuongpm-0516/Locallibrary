@@ -1,0 +1,16 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{t('detail.genre', { ns: 'detail' })}: #{genre.name}
+
+    div.content
+        h2.font-md #{t('detail.books', { ns: 'detail' })}
+        if genre_books.length
+            dl
+                each book in genre_books
+                    dt
+                        +link(book.title, `/books/${book.id}`)
+                    dd #{book.summary}
+        else
+            p #{t('detail.genre_no_books', { ns: 'detail' })}

@@ -1,11 +1,12 @@
 extends ../layout
+include ../mixins
 
 block content
     h1= title
     if genres.length
         ul
             each genre in genres
-                li
-                    a(href=genre.url) #{genre.name}
+                li.mb
+                    +link(genre.name, `/genres/${genre.id}`)
     else
         p #{t('list.no_genres')}

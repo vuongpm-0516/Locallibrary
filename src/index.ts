@@ -6,6 +6,8 @@ import logger from 'morgan';
 import i18next from 'i18next';
 import Backend from 'i18next-fs-backend';
 import middleware from 'i18next-http-middleware';
+import session from 'express-session';
+import flash from 'connect-flash';
 
 import indexRouter from './routes/index';
 
@@ -33,6 +35,8 @@ i18next
         supportedLngs: ['en', 'vi'],
         preload: ['en', 'vi'],
         saveMissing: true,
+        ns: ['translation', 'detail', 'error'],
+        defaultNS: 'translation',
         backend: {
             loadPath: path.join(__dirname, 'locales/{{lng}}/{{ns}}.json'),
             addPath: path.join(__dirname, 'locales/{{lng}}/{{ns}}.missing.json'),
@@ -49,6 +53,20 @@ i18next
 
 // create and setup express app
 const app = express();
+
+// setup flash middleware
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || 'session_secret',
+        resave: false,
+        saveUninitialized: true,
+    })
+);
+app.use(flash());
+app.use((req, res, next) => {
+    res.locals.err_message = req.flash('err_message');
+    next();
+});
 
 // setup i18next middleware
 app.use(

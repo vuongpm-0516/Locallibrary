@@ -1,0 +1,13 @@
+{
+    "error": {
+        "title": "Lỗi",
+        "invalid_author_id": "Mã tác giả không hợp lệ",
+        "author_not_found": "Không tìm thấy tác giả",
+        "invalid_genre_id": "Mã thể loại không hợp lệ",
+        "genre_not_found": "Không tìm thấy thể loại",
+        "invalid_book_id": "Mã sách không hợp lệ",
+        "book_not_found": "Không tìm thấy sách",
+        "invalid_bookinstance_id": "Mã bản sao sách không hợp lệ",
+        "bookinstance_not_found": "Không tìm thấy bản sao sách"
+    }
+}

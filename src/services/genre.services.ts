@@ -11,3 +11,10 @@ export const getGenreList = async () => {
         relations: ['books'],
     });
 };
+
+export const getGenreById = async (id: number) => {
+    return genreRepository.findOne({
+        where: { id },
+        relations: ['books'],
+    });
+};

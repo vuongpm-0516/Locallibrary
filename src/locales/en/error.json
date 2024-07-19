@@ -1,0 +1,13 @@
+{
+    "error": {
+        "title": "Error",
+        "invalid_author_id": "Invalid author ID parameter",
+        "author_not_found": "Author not found",
+        "invalid_genre_id": "Invalid genre ID parameter",
+        "genre_not_found": "Genre not found",
+        "invalid_book_id": "Invalid book ID parameter",
+        "book_not_found": "Book not found",
+        "invalid_bookinstance_id": "Invalid bookinstance ID parameter",
+        "bookinstance_not_found": "Bookinstance not found"
+    }
+}
