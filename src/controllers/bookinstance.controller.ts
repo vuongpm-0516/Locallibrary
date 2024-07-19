@@ -2,19 +2,50 @@ import { Request, Response, NextFunction } from 'express';
 import asyncHandler from 'express-async-handler';
 
 import * as bookinstanceServices from '../services/bookinstance.services';
+import { BookInstanceStatus } from '../enums/BookInstanceStatus';
+
+async function validateGetBookinstanceById(req: Request, res: Response, next: NextFunction) {
+    const id = parseInt(req.params.id);
+    if (isNaN(id)) {
+        // log 404 Invalid book instance ID parameter
+        req.flash('err_message', req.t('error.invalid_bookinstance_id', { ns: 'error' }));
+        return res.redirect('/error');
+    }
+
+    const bookInstance = await bookinstanceServices.getBookinstanceById(id);
+    if (bookInstance === null) {
+        // log 404 Book instance not found
+        req.flash('err_message', req.t('error.bookinstance_not_found', { ns: 'error' }));
+        return res.redirect('/error');
+    }
+
+    return bookInstance;
+}
 
 // Display list of all BookInstances.
 export const bookinstanceList = asyncHandler(
     async (req: Request, res: Response, next: NextFunction) => {
         const bookInstances = await bookinstanceServices.getBookinstanceList();
-        res.render('bookinstances/index', { bookInstances, title: req.t('list.bookinstance') });
+
+        res.render('bookinstances/index', {
+            bookInstances,
+            title: req.t('list.bookinstance'),
+            BookInstanceStatus,
+        });
     }
 );
 
 // Display detail page for a specific BookInstance.
 export const bookinstanceDetail = asyncHandler(
     async (req: Request, res: Response, next: NextFunction) => {
-        res.send(`NOT IMPLEMENTED: BookInstance detail: ${req.params.id}`);
+        const bookInstance = await validateGetBookinstanceById(req, res, next);
+        if (!bookInstance) return;
+
+        res.render('bookinstances/detail', {
+            title: req.t('detail.bookinstance_detail', { ns: 'detail' }),
+            bookinstance: bookInstance,
+            BookInstanceStatus,
+        });
     }
 );
 

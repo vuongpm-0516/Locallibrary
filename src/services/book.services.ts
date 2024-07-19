@@ -11,3 +11,10 @@ export const getBookList = async () => {
         relations: ['author'],
     });
 };
+
+export const getBookById = async (id: number) => {
+    return bookRepository.findOne({
+        relations: ['author', 'genres', 'bookInstances'],
+        where: { id },
+    });
+};

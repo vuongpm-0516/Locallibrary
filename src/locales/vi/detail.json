@@ -1,0 +1,22 @@
+{
+    "detail": {
+        "book_detail": "Chi tiết sách",
+        "author_detail": "Chi tiết tác giả",
+        "genre_detail": "Chi tiết thể loại",
+        "bookinstance_detail": "Chi tiết bản sao sách",
+        "author_no_books": "Tác giả này không có cuốn sách nào.",
+        "book_no_instances": "Không có bản sao nào của cuốn sách này trong thư viện.",
+        "genre_no_books": "Thể loại này không có cuốn sách nào.",
+        "author": "Tác giả",
+        "genre": "Thể loại",
+        "books": "Các cuốn sách",
+        "title": "Tiêu đề",
+        "summary": "Tóm tắt",
+        "isbn": "ISBN",
+        "copies": "Bản sao",
+        "imprint": "Ấn bản",
+        "due_back": "Hạn trả",
+        "id": "Mã sách",
+        "status": "Tình trạng"
+    }
+}

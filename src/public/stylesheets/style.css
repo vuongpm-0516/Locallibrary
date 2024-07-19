@@ -42,3 +42,12 @@ li.spacer {
 .mb {
     margin-bottom: 5px;
 }
+
+div.content {
+    margin-left:20px;
+    margin-top:20px;
+}
+
+.font-md {
+    font-size: 1.5rem;
+}

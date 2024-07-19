@@ -14,11 +14,15 @@ export const index = asyncHandler(async (req: Request, res: Response, next: Next
         ]);
 
     res.render('index', {
-        title: 'Local Library',
+        title: req.t('sidebar.home'),
         book_count: numBooks,
         book_instance_count: numBookInstances,
         book_instance_available_count: availableBookInstances[1], // count available bookInstance
         author_count: numAuthors,
         genre_count: numGenres,
     });
+});
+
+export const error = asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+    res.render('flash_error', { title: req.t('error.title', { ns: 'error' }) });
 });

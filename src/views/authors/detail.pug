@@ -1,0 +1,17 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{t('detail.author', { ns: 'detail' })}: #{author.name}
+    p #{author.date_of_birth} - #{author.date_of_death}
+
+    div.content
+        h2.font-md #{t('detail.books', { ns: 'detail' })}
+        if author_books.length
+            dl
+                each book in author_books
+                    dt
+                        +link(book.title, `/books/${book.id}`)
+                    dd #{book.summary}
+        else
+            p #{t('detail.author_no_books', { ns: 'detail' })}

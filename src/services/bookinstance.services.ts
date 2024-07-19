@@ -16,3 +16,10 @@ export const getBookinstanceList = async () => {
         relations: ['book'],
     });
 };
+
+export const getBookinstanceById = async (id: number) => {
+    return bookInstanceRepository.findOne({
+        where: { id },
+        relations: ['book'],
+    });
+};

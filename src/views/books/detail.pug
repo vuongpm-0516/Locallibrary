@@ -1,0 +1,35 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{t('detail.title', { ns: 'detail' })}: #{book.title}
+
+    p #[strong #{t('detail.author', { ns: 'detail' })}: ]
+        +link(book.author.name, `/authors/${book.author.id}`)
+    p #[strong #{t('detail.summary', { ns: 'detail' })}:] #{book.summary}
+    p #[strong #{t('detail.isbn', { ns: 'detail' })}:] #{book.isbn}
+    p #[strong #{t('detail.genre', { ns: 'detail' })}: ]
+        each val, index in bookGenres
+            +link(val.name, `/genres/${val.id}`)
+            if index < bookGenres.length - 1
+                |,&nbsp;
+
+    div.content
+        h2.font-md #{t('detail.copies', { ns: 'detail' })}
+
+        each val in bookInstances
+            hr
+            if val.status==BookInstanceStatus.AVAILABLE
+                p.text-success #{val.status}
+            else if val.status==BookInstanceStatus.MAINTENANCE
+                p.text-danger #{val.status}
+            else
+                p.text-warning #{val.status}
+            p #[strong #{t('detail.imprint', { ns: 'detail' })}:] #{val.imprint}
+            if val.status!=BookInstanceStatus.AVAILABLE
+                p #[strong #{t('detail.due_back', { ns: 'detail' })}:] #{val.due_back}
+            p #[strong #{t('detail.id', { ns: 'detail' })}: ]
+                +link(val.id, `/bookinstances/${val.id}`)
+
+        else
+            p #{t('detail.book_no_instances', { ns: 'detail' })}
