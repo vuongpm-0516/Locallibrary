@@ -14,3 +14,9 @@ block content
                     dd #{book.summary}
         else
             p #{t('detail.genre_no_books', { ns: 'detail' })}
+
+    hr
+    p
+        a(href=`/genres/${genre.id}/delete`) #{t('sidebar.delete_genre')}
+    p
+        a(href=`/genres/${genre.id}/update`) #{t('sidebar.update_genre')}

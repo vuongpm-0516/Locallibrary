@@ -1,0 +1,33 @@
+{
+    "submit": "Submit",
+    "delete": "Delete",
+    "select_author": "Please select an author",
+    "select_book": "Please select a book",
+    "select_status": "Please select a status",
+    "date_available": "Date when book available",
+    "invalid_delete": "Delete the following {{ condition }} before attempting to delete this {{ entity }}.",
+    "warning_delete": "Warning: Do you really want to delete this {{ entity }}?",
+    "genre": {
+        "name_max": "Genre name must contain at least 3 characters"
+    },
+    "author": {
+        "first_name": "First Name",
+        "family_name": "Family Name",
+        "date_of_birth": "Date of Birth",
+        "date_of_death": "Date of Death",
+        "empty_first_name": "First name must be specified",
+        "invalid_first_name": "First name has invalid characters",
+        "empty_family_name": "Family name must be specified",
+        "invalid_family_name": "Family name has invalid characters",
+        "invalid_date_of_birth": "Invalid date of birth",
+        "invalid_date_of_death": "Invalid date of death"
+    },
+    "book": {
+        "choose_book": "Book",
+        "field_empty": "{{field}} must not be empty"
+    },
+    "bookinstance": {
+        "field_specified": "{{field}} must be specified",
+        "invalid_due_back": "Invalid date of due back"
+    }
+}

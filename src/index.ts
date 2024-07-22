@@ -35,7 +35,7 @@ i18next
         supportedLngs: ['en', 'vi'],
         preload: ['en', 'vi'],
         saveMissing: true,
-        ns: ['translation', 'detail', 'error'],
+        ns: ['translation', 'detail', 'form', 'error'],
         defaultNS: 'translation',
         backend: {
             loadPath: path.join(__dirname, 'locales/{{lng}}/{{ns}}.json'),

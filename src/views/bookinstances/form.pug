@@ -1,0 +1,48 @@
+extends ../layout
+
+block content
+    h1=title
+
+    form(method='POST')
+        div.form-group
+            label(for='book') #{t('book.choose_book', { ns: 'form' })}:
+            select#book.form-control(name='book')
+                option(value='') --#{t('select_book', { ns: 'form' })}--
+                for book in book_list
+                    if selected_book==book.id.toString()
+                        option(value=book.id, selected) #{book.title}
+                    else
+                        option(value=book.id) #{book.title}
+
+        div.form-group
+            label(for='imprint') #{t('detail.imprint', { ns: 'detail' })}:
+            input#imprint.form-control(
+                type='text'
+                placeholder='Publisher and date information'
+                name='imprint'
+                value=(undefined===bookinstance ? '' : bookinstance.imprint)
+            )
+        div.form-group
+            label(for='due_back') #{t('date_available', { ns: 'form' })}:
+            input#due_back.form-control(
+                type='date'
+                name='due_back'
+                value=(undefined===bookinstance ? '' : bookinstance.due_back)
+            )
+
+        div.form-group
+            label(for='status') #{t('detail.status', { ns: 'detail' })}:
+            select#status.form-control(name='status')
+                option(value='') --#{t('select_status', { ns: 'form' })}--
+                each val in Object.values(BookInstanceStatus)
+                    if undefined===bookinstance || bookinstance.status!=val
+                        option(value=val)= val
+                    else
+                        option(value=val selected)= val
+
+        button.btn.btn-primary(type='submit') #{t('submit', { ns: 'form' })}
+
+    if errors
+        ul
+            for error in errors
+                li.mb!= error.msg

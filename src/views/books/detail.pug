@@ -33,3 +33,9 @@ block content
 
         else
             p #{t('detail.book_no_instances', { ns: 'detail' })}
+
+    hr
+    p
+        a(href=`/books/${book.id}/delete`) #{t('sidebar.delete_book')}
+    p
+        a(href=`/books/${book.id}/update`) #{t('sidebar.update_book')}

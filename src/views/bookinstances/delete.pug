@@ -1,0 +1,13 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{title}: #{bookinstance.id}
+
+    p #{t('warning_delete', { entity: t('detail.id', { ns: 'detail' }), ns: 'form' })}
+
+    form(method='POST')
+        div.form-group
+        input#bookinstanceId.form-control(type='hidden' name='bookinstanceId', value=bookinstance.id)
+
+        button.btn.btn-primary(type='submit') #{t('delete', { ns: 'form' })}
