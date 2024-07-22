@@ -20,7 +20,15 @@
         "create_book": "Create new book",
         "create_bookinstance": "Create new book instance (copy)",
         "english": "English",
-        "vietnamese": "Vietnamese"
+        "vietnamese": "Vietnamese",
+        "update_author": "Update Author",
+        "update_bookinstance": "Update Book Instance",
+        "update_book": "Update Book",
+        "update_genre": "Update Genre",
+        "delete_author": "Delete Author",
+        "delete_book": "Delete Book",
+        "delete_genre": "Delete Genre",
+        "delete_bookinstance": "Delete Book Instance"
     },
     "list": {
         "book": "Book List",

@@ -1,0 +1,44 @@
+extends ../layout
+
+block content
+    h1=title
+
+    form(method='POST')
+        div.form-group
+            label(for='first_name') #{t('author.first_name', { ns: 'form' })}:
+            input#first_name.form-control(
+                type='text'
+                placeholder='First name (Christian)'
+                name='first_name'
+                required
+                value=(undefined===author ? '' : author.first_name)
+            )
+        div.form-group
+            label(for='family_name') #{t('author.family_name', { ns: 'form' })}:
+            input#family_name.form-control(
+                type='text'
+                placeholder='Family name (Surname)'
+                name='family_name'
+                required
+                value=(undefined===author ? '' : author.family_name)
+            )
+        div.form-group
+            label(for='date_of_birth') #{t('author.date_of_birth', { ns: 'form' })}:
+            input#date_of_birth.form-control(
+                type='date'
+                name='date_of_birth'
+                value=(undefined===author ? '' : author.date_of_birth)
+            )
+        div.form-group
+            label(for='date_of_death') #{t('author.date_of_death', { ns: 'form' })}:
+            input#date_of_death.form-control(
+                type='date'
+                name='date_of_death'
+                value=(undefined===author ? '' : author.date_of_death)
+            )
+        button.btn.btn-primary(type='submit') #{t('submit', { ns: 'form'})}
+
+    if errors
+        ul
+            for error in errors
+                li.mb!= error.msg

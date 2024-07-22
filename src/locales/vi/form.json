@@ -1,0 +1,33 @@
+{
+    "submit": "Gửi",
+    "delete": "Xóa",
+    "select_author": "Chọn tác giả",
+    "select_book": "Chọn sách",
+    "select_status": "Chọn tình trạng",
+    "date_available": "Ngày có sách",
+    "invalid_delete": "Hãy xóa {{ condition }} sau đây trước khi xóa {{ entity }} này.",
+    "warning_delete": "Cảnh báo: Bạn có thực sự muốn xóa {{ entity }} này?",
+    "genre": {
+        "name_max": "Tên thể loại phải chứa ít nhất 3 kí tự"
+    },
+    "author": {
+        "first_name": "Tên",
+        "family_name": "Họ và tên đệm",
+        "date_of_birth": "Ngày sinh",
+        "date_of_death": "Ngày mất",
+        "empty_first_name": "Tên phải được chỉ định",
+        "invalid_first_name": "Tên chứa kí tự không hợp lệ",
+        "empty_family_name": "Họ và tên đệm phải được chỉ định",
+        "invalid_family_name": "Họ và tên đệm chứa kí tự không hợp lệ",
+        "invalid_date_of_birth": "Ngày sinh không hợp lệ",
+        "invalid_date_of_death": "Ngày mất không hợp lệ"
+    },
+    "book": {
+        "choose_book": "Sách",
+        "field_empty": "{{field}} không được để trống"
+    },
+    "bookinstance": {
+        "field_specified": "{{field}} phải được chỉ định",
+        "invalid_due_back": "Ngày có sách không hợp lệ"
+    }
+}

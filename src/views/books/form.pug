@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+    h1= title
+
+    form(method='POST')
+        div.form-group
+            label(for='title') #{t('detail.title', { ns: 'detail' })}:
+            input#title.form-control(type='text' placeholder='Name of book' name='title' value=(undefined===book ? '' : book.title))
+        div.form-group
+            label(for='author') #{t('detail.author', { ns: 'detail' })}:
+            select#author.form-control(name='author')
+                option(value='') --#{t('select_author', { ns: 'form' })}--
+                for author in authors
+                    if book
+                        if author.id.toString()===book.author.toString()
+                            option(value=author.id selected) #{author.name}
+                        else
+                            option(value=author.id) #{author.name}
+                    else
+                        option(value=author.id) #{author.name}
+        div.form-group
+            label(for='summary') #{t('detail.summary', { ns: 'detail' })}:
+            textarea#summary.form-control(placeholder='Summary' name='summary')= undefined===book ? '' : book.summary
+        div.form-group
+            label(for='isbn') #{t('detail.isbn', { ns: 'detail' })}:
+            input#isbn.form-control(type='text' placeholder='ISBN11' name='isbn' value=(undefined===book ? '' : book.isbn))
+        div.form-group
+            label #{t('detail.genre', { ns: 'detail' })}:
+            div
+                for genre in genres
+                    div.inline-genre
+                        if genre.checked === 'true'
+                            input.checkbox-input(type='checkbox' name='genres', id=genre.id, value=genre.id, checked)
+                        else
+                            input.checkbox-input(type='checkbox' name='genres', id=genre.id, value=genre.id)
+                        label(for=genre.id) &nbsp;#{genre.name}
+        button.btn.btn-primary(type='submit') #{t('submit', { ns: 'form' })}
+
+    if errors
+        ul
+            for error in errors
+                li.mb!= error.msg

@@ -1,0 +1,12 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{title}: #{genre.name}
+    p #{t('warning_delete', { entity: t('detail.genre', { ns: 'detail' }), ns: 'form' })}
+
+    form(method='POST')
+        div.form-group
+            input#genreId.form-control(type='hidden' name='genreId', value=genre.id)
+
+        button.btn.btn-primary(type='submit') #{t('delete', { ns: 'form' })}

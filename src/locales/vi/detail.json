@@ -10,6 +10,7 @@
         "author": "Tác giả",
         "genre": "Thể loại",
         "books": "Các cuốn sách",
+        "bookinstances": "Các bản sao",
         "title": "Tiêu đề",
         "summary": "Tóm tắt",
         "isbn": "ISBN",

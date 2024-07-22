@@ -1,0 +1,53 @@
+extends ../layout
+include ../mixins
+
+block content
+    h1 #{title}: #{book.title}
+
+    if bookInstances.length
+
+        p.text-danger #[strong #{t('invalid_delete', { condition: t('detail.bookinstances', { ns: 'detail' }), entity: t('book.choose_book', { ns: 'form' }), ns: 'form' })}]
+        p #[strong #{t('detail.author', { ns: 'detail' })}: ]
+            +link(book.author.name, `/authors/${book.author.id}`)
+        p #[strong #{t('detail.summary', { ns: 'detail' })}:] #{book.summary}
+        p #[strong #{t('detail.isbn', { ns: 'detail' })}:] #{book.isbn}
+        p #[strong #{t('detail.genre', { ns: 'detail' })}: ]
+            each val, index in bookGenres
+                +link(val.name, `/genres/${val.id}`)
+                if index < bookGenres.length - 1
+                    |,&nbsp;
+
+        div.content
+            h2.font-md #{t('detail.copies', { ns: 'detail' })}
+
+            each val in bookInstances
+                hr
+                if val.status==BookInstanceStatus.AVAILABLE
+                    p.text-success #{val.status}
+                else if val.status==BookInstanceStatus.MAINTENANCE
+                    p.text-danger #{val.status}
+                else
+                    p.text-warning #{val.status}
+                p #[strong #{t('detail.imprint', { ns: 'detail' })}:] #{val.imprint}
+                if val.status!=BookInstanceStatus.AVAILABLE
+                    p #[strong #{t('detail.due_back', { ns: 'detail' })}:] #{val.due_back}
+                p #[strong #{t('detail.id', { ns: 'detail' })}: ]
+                    +link(val.id, `/bookinstances/${val.id}`)
+
+            else
+                p #{t('detail.book_no_instances', { ns: 'detail' })}
+
+        hr
+        p
+            a(href=`/books/${book.id}/delete`) #{t('sidebar.delete_book')}
+        p
+            a(href=`/books/${book.id}/update`) #{t('sidebar.update_book')}
+
+    else
+        p #{t('warning_delete', { entity: t('book.choose_book', { ns: 'form' }), ns: 'form' })}
+
+        form(method='POST')
+            div.form-group
+                input#bookId.form-control(type='hidden' name='bookId', value=book.id)
+
+            button.btn.btn-primary(type='submit') #{t('delete', { ns: 'form' })}
